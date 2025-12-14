@@ -1,0 +1,7 @@
+export { default as AboutNerd } from './AboutNerd'
+export { default as ComboSection } from './ComboSection'
+export { default as ContactNerd } from './ContactNerd'
+export { default as FooterNerd } from './FooterNerd'
+export { default as HeaderNerd } from './HeaderNerd'
+export { default as HeroNerd } from './HeroNerd'
+export { default as LocationsNerd } from './LocationsNerd'
