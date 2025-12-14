@@ -77,7 +77,8 @@ export default function ContactNerd() {
                                 </p>
                                 <Button
                                     href="/booking"
-                                    className="mt-6 bg-white px-8 py-3 text-primary-600 hover:bg-primary-50"
+                                    color="white"
+                                    className="mt-6 !text-primary-600 hover:!bg-primary-50"
                                 >
                                     Đặt lịch ngay
                                 </Button>

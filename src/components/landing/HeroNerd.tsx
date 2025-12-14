@@ -24,7 +24,17 @@ const features = [
   { icon: ClockIcon, text: '24/7' },
 ]
 
-export default function HeroNerd() {
+interface HeroNerdProps {
+  heroTitle?: string
+  heroSubtitle?: string
+  heroCta?: string
+}
+
+export default function HeroNerd({
+  heroTitle = 'Nerd Society',
+  heroSubtitle = 'Cộng đồng học tập năng động tại Hà Nội. Không gian làm việc chung, học nhóm lý tưởng với đầy đủ tiện nghi và đồ uống miễn phí!',
+  heroCta = 'Đặt lịch ngay',
+}: HeroNerdProps) {
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
@@ -66,8 +76,7 @@ export default function HeroNerd() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
             >
-              Nerd
-              <span className="text-primary-400"> Society</span>
+              <span dangerouslySetInnerHTML={{ __html: heroTitle.replace('Society', '<span class="text-primary-400">Society</span>') }} />
             </motion.h1>
 
             <motion.p
@@ -76,8 +85,7 @@ export default function HeroNerd() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-6 max-w-lg text-lg text-neutral-300 sm:text-xl"
             >
-              Cộng đồng học tập năng động tại Hà Nội. Không gian làm việc chung,
-              học nhóm lý tưởng với đầy đủ tiện nghi và đồ uống miễn phí!
+              {heroSubtitle}
             </motion.p>
 
             {/* Features */}
@@ -111,7 +119,7 @@ export default function HeroNerd() {
                 className="px-8 py-3.5 text-base shadow-lg shadow-primary-500/30"
               >
                 <RocketLaunchIcon className="size-5" />
-                Đặt lịch ngay
+                {heroCta}
               </Button>
               <Button
                 outline
@@ -121,6 +129,7 @@ export default function HeroNerd() {
                 Xem các combo
               </Button>
             </motion.div>
+
 
             {/* Stats */}
             <motion.div
@@ -151,12 +160,12 @@ export default function HeroNerd() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:flex lg:items-center lg:justify-center"
           >
-            {/* Floating card 1 */}
+            {/* Floating card 1 - Updated position */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute left-0 top-1/4 rounded-2xl bg-white/10 p-5 backdrop-blur-md"
+              className="absolute left-10 top-[20%] rounded-2xl bg-white/10 p-5 backdrop-blur-md transition-transform hover:scale-105"
             >
               <div className="flex items-center gap-3">
                 <div className="flex size-12 items-center justify-center rounded-xl bg-primary-500 text-white">
@@ -169,12 +178,12 @@ export default function HeroNerd() {
               </div>
             </motion.div>
 
-            {/* Floating card 2 */}
+            {/* Floating card 2 - Updated position */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="absolute right-0 top-1/2 rounded-2xl bg-white/10 p-5 backdrop-blur-md"
+              className="absolute right-0 top-[45%] rounded-2xl bg-white/10 p-5 backdrop-blur-md transition-transform hover:scale-105"
             >
               <div className="flex items-center gap-3">
                 <div className="flex size-12 items-center justify-center rounded-xl bg-primary-500 text-white">
@@ -187,12 +196,12 @@ export default function HeroNerd() {
               </div>
             </motion.div>
 
-            {/* Floating card 3 */}
+            {/* Floating card 3 - Updated position */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
-              className="absolute bottom-1/4 left-1/4 rounded-2xl bg-white/10 p-5 backdrop-blur-md"
+              className="absolute bottom-[15%] left-[20%] rounded-2xl bg-white/10 p-5 backdrop-blur-md transition-transform hover:scale-105"
             >
               <div className="flex items-center gap-3">
                 <div className="flex size-12 items-center justify-center rounded-xl bg-primary-500 text-white">

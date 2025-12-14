@@ -11,6 +11,7 @@ import {
     CubeIcon,
     HomeIcon,
     MoonIcon,
+    PencilSquareIcon,
     SunIcon,
     UsersIcon,
     XMarkIcon,
@@ -27,6 +28,7 @@ const navigation = [
     { name: 'Locations', href: '/admin/locations', icon: BuildingStorefrontIcon },
     { name: 'Customers', href: '/admin/customers', icon: UsersIcon },
     { name: 'Reports', href: '/admin/reports', icon: ChartBarIcon },
+    { name: 'Content', href: '/admin/content', icon: PencilSquareIcon },
     { name: 'Settings', href: '/admin/settings', icon: Cog6ToothIcon },
 ]
 

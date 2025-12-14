@@ -164,20 +164,8 @@ export default function LoginPage() {
           className="absolute inset-0 size-full object-cover"
           placeholder="blur"
         />
-        <div className="absolute inset-0 bg-primary-900/40 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="max-w-md px-8 text-center text-white">
-            <div className="mb-8 flex justify-center">
-              <div className="flex size-24 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                <CoffeeIcon className="size-12" />
-              </div>
-            </div>
-            <h2 className="text-3xl font-bold">Không gian học tập dành cho Gen Z</h2>
-            <p className="mt-4 text-primary-100">
-              Đặt lịch online, tận hưởng không gian làm việc chung thoải mái với cafe miễn phí và wifi siêu tốc.
-            </p>
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-primary-900/40" />
+        {/* Text overlay removed as requested */}
       </div>
     </div>
   )

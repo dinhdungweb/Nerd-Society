@@ -51,7 +51,15 @@ const features = [
     },
 ]
 
-export default function AboutNerd() {
+interface AboutNerdProps {
+    aboutTitle?: string
+    aboutContent?: string
+}
+
+export default function AboutNerd({
+    aboutTitle = 'Nerd Society là gì?',
+    aboutContent = 'Cộng đồng học tập Gen Z năng động tại Hà Nội. Chúng tôi mang đến không gian làm việc chung và học nhóm lý tưởng, nơi bạn có thể kết nối, phát triển bản thân và chinh phục mọi kiến thức!',
+}: AboutNerdProps) {
     return (
         <section id="about" className="py-20 lg:py-28">
             <div className="container">
@@ -73,7 +81,7 @@ export default function AboutNerd() {
                         transition={{ delay: 0.1 }}
                         className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl dark:text-white"
                     >
-                        Nerd Society là gì?
+                        {aboutTitle}
                     </motion.h2>
 
                     <motion.p
@@ -83,9 +91,7 @@ export default function AboutNerd() {
                         transition={{ delay: 0.2 }}
                         className="mt-4 text-lg text-neutral-600 dark:text-neutral-300"
                     >
-                        Cộng đồng học tập Gen Z năng động tại Hà Nội. Chúng tôi mang đến không gian
-                        làm việc chung và học nhóm lý tưởng, nơi bạn có thể kết nối, phát triển bản thân
-                        và chinh phục mọi kiến thức!
+                        {aboutContent}
                     </motion.p>
                 </div>
 

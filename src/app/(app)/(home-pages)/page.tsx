@@ -16,13 +16,36 @@ export const metadata: Metadata = {
   keywords: ['Nerd Society', 'cafe học tập', 'co-working space', 'Hà Nội', 'Gen Z', 'không gian làm việc'],
 }
 
-export default function Page() {
+import { prisma } from '@/lib/prisma'
+
+async function getSettings() {
+  try {
+    const settings = await prisma.setting.findMany()
+    return settings.reduce((acc, curr) => {
+      acc[curr.key] = curr.value
+      return acc
+    }, {} as Record<string, string>)
+  } catch (error) {
+    return {}
+  }
+}
+
+export default async function Page() {
+  const settings = await getSettings()
+
   return (
     <>
       <HeaderNerd />
       <main className="pt-20">
-        <HeroNerd />
-        <AboutNerd />
+        <HeroNerd
+          heroTitle={settings.heroTitle}
+          heroSubtitle={settings.heroSubtitle}
+          heroCta={settings.heroCta}
+        />
+        <AboutNerd
+          aboutTitle={settings.aboutTitle}
+          aboutContent={settings.aboutContent}
+        />
         <ComboSection />
         <LocationsNerd />
         <ContactNerd />

@@ -12,6 +12,7 @@ import {
     SunIcon,
     UserCircleIcon,
     UserIcon,
+    UserPlusIcon,
     XMarkIcon
 } from '@heroicons/react/24/outline'
 import { signOut, useSession } from 'next-auth/react'
@@ -192,13 +193,47 @@ export default function HeaderNerd() {
                             </Menu>
                         ) : (
                             <>
-                                <Link
-                                    href="/login"
-                                    className="flex size-10 items-center justify-center rounded-xl bg-neutral-100 text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
-                                    aria-label="Đăng nhập"
-                                >
-                                    <UserIcon className="size-5" />
-                                </Link>
+                                <Menu as="div" className="relative">
+                                    <MenuButton className="flex size-10 items-center justify-center rounded-xl bg-neutral-100 text-neutral-600 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700">
+                                        <UserIcon className="size-5" />
+                                    </MenuButton>
+                                    <Transition
+                                        as={Fragment}
+                                        enter="transition ease-out duration-100"
+                                        enterFrom="transform opacity-0 scale-95"
+                                        enterTo="transform opacity-100 scale-100"
+                                        leave="transition ease-in duration-75"
+                                        leaveFrom="transform opacity-100 scale-100"
+                                        leaveTo="transform opacity-0 scale-95"
+                                    >
+                                        <MenuItems className="absolute right-0 mt-2 w-48 origin-top-right rounded-xl bg-white p-1 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-800 dark:ring-white/5">
+                                            <MenuItem>
+                                                {({ active }) => (
+                                                    <Link
+                                                        href="/login"
+                                                        className={`${active ? 'bg-neutral-100 dark:bg-neutral-700' : ''
+                                                            } flex items-center rounded-lg px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300`}
+                                                    >
+                                                        <ArrowRightStartOnRectangleIcon className="mr-3 size-5 text-neutral-400" />
+                                                        Đăng nhập
+                                                    </Link>
+                                                )}
+                                            </MenuItem>
+                                            <MenuItem>
+                                                {({ active }) => (
+                                                    <Link
+                                                        href="/signup"
+                                                        className={`${active ? 'bg-neutral-100 dark:bg-neutral-700' : ''
+                                                            } flex items-center rounded-lg px-4 py-2 text-sm text-neutral-700 dark:text-neutral-300`}
+                                                    >
+                                                        <UserPlusIcon className="mr-3 size-5 text-neutral-400" />
+                                                        Đăng ký
+                                                    </Link>
+                                                )}
+                                            </MenuItem>
+                                        </MenuItems>
+                                    </Transition>
+                                </Menu>
                                 <Button
                                     color="primary"
                                     href="/booking"
@@ -342,12 +377,18 @@ export default function HeaderNerd() {
                                         </button>
                                     </div>
                                 ) : (
-                                    <div className="mt-6 border-t border-neutral-200 pt-6 dark:border-neutral-700">
+                                    <div className="mt-6 flex gap-3 border-t border-neutral-200 pt-6 dark:border-neutral-700">
                                         <Link
                                             href="/login"
-                                            className="block w-full rounded-xl bg-neutral-100 px-4 py-3 text-center text-base font-medium text-neutral-900 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
+                                            className="flex-1 rounded-xl bg-neutral-100 px-4 py-3 text-center text-base font-medium text-neutral-900 transition-colors hover:bg-neutral-200 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
                                         >
                                             Đăng nhập
+                                        </Link>
+                                        <Link
+                                            href="/signup"
+                                            className="flex-1 rounded-xl bg-primary-50 px-4 py-3 text-center text-base font-medium text-primary-700 transition-colors hover:bg-primary-100 dark:bg-primary-900/20 dark:text-primary-400 dark:hover:bg-primary-900/30"
+                                        >
+                                            Đăng ký
                                         </Link>
                                     </div>
                                 )}

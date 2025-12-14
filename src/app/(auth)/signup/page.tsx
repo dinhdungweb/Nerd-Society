@@ -237,34 +237,7 @@ export default function SignupPage() {
           className="absolute inset-0 size-full object-cover"
           placeholder="blur"
         />
-        <div className="absolute inset-0 bg-primary-900/40 backdrop-blur-[2px]" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="max-w-md px-8 text-center text-white">
-            <div className="mb-8 flex justify-center">
-              <div className="flex size-24 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                <CoffeeIcon className="size-12" />
-              </div>
-            </div>
-            <h2 className="text-3xl font-bold">Tham gia cộng đồng Nerd Society</h2>
-            <p className="mt-4 text-primary-100">
-              Đăng ký để đặt lịch học tập, làm việc tại không gian hiện đại với nhiều ưu đãi hấp dẫn.
-            </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <div className="text-center">
-                <div className="text-3xl font-bold">24/7</div>
-                <div className="text-sm text-primary-200">Mở cửa</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">∞</div>
-                <div className="text-sm text-primary-200">Cafe miễn phí</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">2</div>
-                <div className="text-sm text-primary-200">Cơ sở</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-primary-900/40" />
       </div>
     </div>
   )
