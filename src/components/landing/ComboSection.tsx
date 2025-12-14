@@ -186,14 +186,23 @@ export default function ComboSection() {
                                 ))}
                             </ul>
 
-                            <Button
-                                color={combo.popular ? 'primary' : undefined}
-                                outline={!combo.popular}
-                                href="/booking"
-                                className="mt-6 w-full justify-center"
-                            >
-                                Đặt tại đây
-                            </Button>
+                            {combo.popular ? (
+                                <Button
+                                    color="primary"
+                                    href="/booking"
+                                    className="mt-6 w-full justify-center"
+                                >
+                                    Đặt tại đây
+                                </Button>
+                            ) : (
+                                <Button
+                                    outline
+                                    href="/booking"
+                                    className="mt-6 w-full justify-center"
+                                >
+                                    Đặt tại đây
+                                </Button>
+                            )}
                         </motion.div>
                     ))}
                 </div>

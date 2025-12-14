@@ -1,5 +1,7 @@
 'use client'
 
+import { Suspense } from 'react'
+
 import { Button } from '@/shared/Button'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import { signIn } from 'next-auth/react'
@@ -16,7 +18,7 @@ const CoffeeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('callbackUrl') || '/'
@@ -168,5 +170,13 @@ export default function LoginPage() {
         {/* Text overlay removed as requested */}
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><div className="size-8 animate-spin rounded-full border-4 border-primary-500 border-t-transparent"></div></div>}>
+      <LoginForm />
+    </Suspense>
   )
 }

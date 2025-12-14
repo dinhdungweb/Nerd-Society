@@ -5,7 +5,7 @@ import { NextAuthOptions, User } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const authOptions: NextAuthOptions = {
-    adapter: PrismaAdapter(prisma),
+    adapter: PrismaAdapter(prisma) as any,
     providers: [
         CredentialsProvider({
             name: 'credentials',
@@ -63,7 +63,6 @@ export const authOptions: NextAuthOptions = {
     },
     pages: {
         signIn: '/login',
-        signUp: '/signup',
         error: '/login',
     },
     secret: process.env.NEXTAUTH_SECRET,

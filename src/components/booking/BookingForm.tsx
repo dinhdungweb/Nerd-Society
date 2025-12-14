@@ -100,7 +100,7 @@ export default function BookingForm({
                 <Button
                     onClick={onSubmit}
                     disabled={!selectedDate || !selectedTime || loading}
-                    size="large"
+
                     className="w-full"
                 >
                     {loading ? 'Đang xử lý...' : 'Tiếp tục thanh toán'}

@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { Button } from '@/shared/Button'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -16,6 +17,14 @@ const CoffeeIcon = (props: React.SVGProps<SVGSVGElement>) => (
 )
 
 export default function ResetPasswordPage() {
+    return (
+        <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><div className="size-8 animate-spin rounded-full border-4 border-primary-500 border-t-transparent"></div></div>}>
+            <ResetPasswordForm />
+        </Suspense>
+    )
+}
+
+function ResetPasswordForm() {
     const router = useRouter()
     const searchParams = useSearchParams()
     const token = searchParams.get('token')
