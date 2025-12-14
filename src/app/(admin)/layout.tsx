@@ -1,5 +1,7 @@
 import AdminSidebar from '@/components/admin/AdminSidebar'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
     title: 'Admin Dashboard',
     description: 'Nerd Society Admin Dashboard',
