@@ -31,7 +31,7 @@ const locations = [
 
 export default function LocationsNerd() {
     return (
-        <section id="locations" className="py-20 lg:py-28">
+        <section id="locations" className="py-20 lg:py-28 bg-neutral-50 dark:bg-neutral-800/50">
             <div className="container">
                 {/* Header */}
                 <div className="mx-auto max-w-2xl text-center">

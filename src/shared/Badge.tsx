@@ -32,6 +32,10 @@ const colors = {
   pink: 'bg-pink-400/15 text-pink-700 group-data-hover:bg-pink-400/25 dark:bg-pink-400/10 dark:text-pink-400 dark:group-data-hover:bg-pink-400/20',
   rose: 'bg-rose-400/15 text-rose-700 group-data-hover:bg-rose-400/25 dark:bg-rose-400/10 dark:text-rose-400 dark:group-data-hover:bg-rose-400/20',
   zinc: 'bg-neutral-600/10 text-neutral-700 group-data-hover:bg-neutral-600/20 dark:bg-white/5 dark:text-neutral-400 dark:group-data-hover:bg-white/10',
+  primary:
+    'bg-primary-500 text-white group-data-hover:bg-primary-600 dark:bg-primary-600 dark:text-white dark:group-data-hover:bg-primary-500',
+  featured:
+    'bg-rose-500 text-white group-data-hover:bg-rose-600 dark:bg-rose-600 dark:text-white dark:group-data-hover:bg-rose-500',
 }
 
 type BadgeProps = { color?: keyof typeof colors }
@@ -56,9 +60,9 @@ export const BadgeButton = forwardRef(function BadgeButton(
     children,
     ...props
   }: BadgeProps & { className?: string; children: React.ReactNode } & (
-      | Omit<Headless.ButtonProps, 'as' | 'className'>
-      | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'className'>
-    ),
+    | Omit<Headless.ButtonProps, 'as' | 'className'>
+    | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'className'>
+  ),
   ref: React.ForwardedRef<HTMLElement>
 ) {
   let classes = clsx(

@@ -1,12 +1,11 @@
 import { prisma } from '@/lib/prisma'
-import Link from 'next/link'
 import {
     ClockIcon,
     CurrencyDollarIcon,
     PencilIcon,
-    PlusIcon,
     StarIcon,
 } from '@heroicons/react/24/outline'
+import AddComboWrapper from '@/components/admin/AddComboWrapper'
 
 async function getCombos() {
     return prisma.combo.findMany({
@@ -30,10 +29,7 @@ export default async function CombosPage() {
                         Quản lý các gói dịch vụ
                     </p>
                 </div>
-                <Link href="/admin/combos/new" className="flex items-center gap-2 rounded-lg bg-primary-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-600">
-                    <PlusIcon className="size-5" />
-                    Thêm combo
-                </Link>
+                <AddComboWrapper />
             </div>
 
             {/* Combos Grid */}

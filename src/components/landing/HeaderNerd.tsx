@@ -21,8 +21,10 @@ import { Fragment, useContext, useEffect, useState } from 'react'
 
 const navigation = [
     { name: 'Giới thiệu', href: '#about' },
+    { name: 'Không gian', href: '#gallery' },
     { name: 'Bảng giá', href: '#combos' },
     { name: 'Địa điểm', href: '#locations' },
+    { name: 'Tin tức', href: '#news' },
     { name: 'Liên hệ', href: '#contact' },
 ]
 

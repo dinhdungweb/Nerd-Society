@@ -1,11 +1,10 @@
 import { prisma } from '@/lib/prisma'
-import Link from 'next/link'
 import {
     MapPinIcon,
     PencilIcon,
     PhoneIcon,
-    PlusIcon,
 } from '@heroicons/react/24/outline'
+import AddLocationWrapper from '@/components/admin/AddLocationWrapper'
 
 async function getLocations() {
     return prisma.location.findMany({
@@ -29,10 +28,7 @@ export default async function LocationsPage() {
                         Quản lý các chi nhánh Nerd Society
                     </p>
                 </div>
-                <Link href="/admin/locations/new" className="flex items-center gap-2 rounded-lg bg-primary-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary-600">
-                    <PlusIcon className="size-5" />
-                    Thêm cơ sở
-                </Link>
+                <AddLocationWrapper />
             </div>
 
             {/* Locations Grid */}

@@ -3,9 +3,11 @@ import {
   ComboSection,
   ContactNerd,
   FooterNerd,
+  GallerySection,
   HeaderNerd,
   HeroNerd,
   LocationsNerd,
+  NewsSection,
 } from '@/components/landing'
 import { Metadata } from 'next'
 
@@ -46,8 +48,10 @@ export default async function Page() {
           aboutTitle={settings.aboutTitle}
           aboutContent={settings.aboutContent}
         />
+        <GallerySection />
         <ComboSection />
         <LocationsNerd />
+        <NewsSection />
         <ContactNerd />
       </main>
       <FooterNerd />

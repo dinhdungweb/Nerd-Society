@@ -19,7 +19,7 @@ export interface NcModalProps {
 const NcModal: FC<NcModalProps> = ({
   renderTrigger,
   renderContent,
-  contentExtraClass = 'max-w-(--breakpoint-xl)',
+  contentExtraClass = 'max-w-2xl',
   contentPaddingClass = 'py-4 px-6 md:py-5',
   triggerText = 'Open Modal',
   modalTitle = 'Modal title',
@@ -50,7 +50,7 @@ const NcModal: FC<NcModalProps> = ({
       {renderTrigger ? renderTrigger(openModal) : <Button onClick={openModal}> {triggerText} </Button>}
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 z-50 overflow-y-auto" onClose={closeModal}>
+        <Dialog as="div" className="fixed inset-0 z-[9999] overflow-y-auto" onClose={closeModal}>
           <div className="min-h-screen px-1 text-center md:px-4">
             <TransitionChild
               as={Fragment}
@@ -78,17 +78,16 @@ const NcModal: FC<NcModalProps> = ({
               leaveTo="opacity-0 scale-95"
             >
               <div
-                className={`my-5 inline-block w-full transform overflow-hidden rounded-2xl border border-black/5 bg-white text-left align-middle text-neutral-900 shadow-xl transition-all sm:my-8 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 ${contentExtraClass}`}
+                className={`my-5 inline-block w-full transform overflow-hidden rounded-2xl border border-black/5 bg-white text-left align-middle text-neutral-900 shadow-xl transition-all relative z-50 sm:my-8 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 ${contentExtraClass}`}
               >
-                <div className="relative border-b border-neutral-100 px-6 py-4 text-center md:py-5 dark:border-neutral-700">
-                  <ButtonClose
-                    onClick={closeModal}
-                    className="absolute top-1/2 left-2 -translate-y-1/2 transform sm:left-4"
-                  />
+                <div className="relative border-b border-neutral-100 px-6 py-4 md:py-5 dark:border-neutral-700">
+                  <div className="absolute top-1/2 right-2 -translate-y-1/2 transform sm:right-4">
+                    <ButtonClose onClick={closeModal} />
+                  </div>
                   {modalTitle && (
                     <DialogTitle
                       as="h3"
-                      className="mx-10 text-base font-semibold text-neutral-900 lg:text-xl dark:text-neutral-200"
+                      className="text-base font-semibold text-neutral-900 lg:text-xl dark:text-neutral-200"
                     >
                       {modalTitle}
                     </DialogTitle>

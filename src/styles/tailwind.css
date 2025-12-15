@@ -304,3 +304,119 @@
 @utility hero-search-form__field-before {
   @apply before:absolute before:-start-1 before:top-1/2 before:-z-10 before:hidden before:h-9 before:w-2 before:-translate-y-1/2 before:bg-(--form-bg) data-open:before:block;
 }
+
+/* Quill Editor Content Styles */
+.prose .ql-align-center,
+.ql-align-center {
+  text-align: center;
+}
+
+.prose .ql-align-right,
+.ql-align-right {
+  text-align: right;
+}
+
+.prose .ql-align-justify,
+.ql-align-justify {
+  text-align: justify;
+}
+
+.prose .ql-indent-1,
+.ql-indent-1 {
+  padding-left: 3em;
+}
+
+.prose .ql-indent-2,
+.ql-indent-2 {
+  padding-left: 6em;
+}
+
+.prose .ql-indent-3,
+.ql-indent-3 {
+  padding-left: 9em;
+}
+
+.prose .ql-indent-4,
+.ql-indent-4 {
+  padding-left: 12em;
+}
+
+/* Images in content */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+.prose .ql-align-center img,
+.ql-align-center img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prose .ql-align-right img,
+.ql-align-right img {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Video embeds */
+.prose iframe,
+.prose video {
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
+.prose .ql-align-center iframe,
+.prose .ql-align-center video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Custom Scrollbar Styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.scrollbar-thin:hover {
+  scrollbar-color: rgb(215, 208, 195) transparent;
+}
+
+.dark .scrollbar-thin:hover {
+  scrollbar-color: rgb(60, 55, 45) transparent;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(215, 208, 195);
+}
+
+.dark .scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(60, 55, 45);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(170, 160, 145);
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(85, 78, 65);
+}

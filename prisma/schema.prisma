@@ -23,6 +23,7 @@ model User {
   bookings      Booking[]
   accounts      Account[]
   sessions      Session[]
+  posts         Post[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -178,4 +179,43 @@ model Setting {
   value     String   @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+// Post - News and Events
+model Post {
+  id            String     @id @default(cuid())
+  title         String
+  slug          String     @unique
+  type          PostType   @default(NEWS)
+  excerpt       String?    // Tóm tắt ngắn
+  content       String     @db.Text // WYSIWYG HTML content
+  thumbnail     String?    // URL ảnh đại diện
+  images        String[]   // Gallery images for carousel
+  author        User       @relation(fields: [authorId], references: [id])
+  authorId      String
+  status        PostStatus @default(DRAFT)
+  publishedAt   DateTime?
+  eventDate     DateTime?  // Ngày diễn ra sự kiện (cho type EVENT)
+  eventTime     String?    // Giờ diễn ra "18:00"
+  eventLocation String?    // Địa điểm sự kiện
+  featured      Boolean    @default(false)
+  viewCount     Int        @default(0)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@index([type])
+  @@index([status])
+  @@index([publishedAt])
+  @@index([authorId])
+}
+
+enum PostType {
+  NEWS  // Tin tức
+  EVENT // Sự kiện
+}
+
+enum PostStatus {
+  DRAFT     // Bản nháp
+  PUBLISHED // Đã xuất bản
+  ARCHIVED  // Đã lưu trữ
 }
